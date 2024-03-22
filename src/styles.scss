@@ -1,0 +1,31 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~bootstrap/scss/bootstrap';
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.btn.btn-primary {
+    background-color: #007bff; /* Cambia el color de fondo */
+    border-color: #007bff; /* Cambia el color del borde */
+    color: #fff; /* Cambia el color del texto */
+  }
+  
+  .btn.btn-primary:hover {
+    background-color: #0056b3; /* Cambia el color de fondo al pasar el mouse */
+    border-color: #0056b3; /* Cambia el color del borde al pasar el mouse */
+  }
+
+  .btn.btn-danger {
+    background-color: #dc3545; /* Color de fondo */
+    border-color: #dc3545; /* Color del borde */
+    color: #fff; /* Color del texto */
+}
+
+.btn.btn-danger:hover {
+    background-color: #c82333; /* Color de fondo al pasar el mouse */
+    border-color: #bd2130; /* Color del borde al pasar el mouse */
+}

@@ -1,1 +1,46 @@
-<p>pet-list works!</p>
+<div class="flex justify-center items-center h-screen ">
+  <div class="mx-auto p-6 bg-light border rounded-lg">
+    <h2 class="text-3xl mb-6">Pet Management</h2>
+    <button mat-raised-button color="primary" (click)="addPet()" class="mb-4 bg-blue-500 hover:bg-blue-700 text-white font-bold rounded">Add Pet</button>
+    <div class="input-group mb-3">
+    <input type="text" [(ngModel)]="searchTerm" class="form-control mx-1" placeholder="Search" aria-label="Search" aria-describedby="basic-addon2">
+    </div>
+    <table mat-table [dataSource]="pets | search: searchTerm" class="p-5 table-auto w-full">
+    
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef class="py-2 px-4">Name</th>
+        <td mat-cell *matCellDef="let pet" class="py-2 px-4">{{ pet.name }}</td>
+      </ng-container>
+    
+      <ng-container matColumnDef="species">
+        <th mat-header-cell *matHeaderCellDef class="py-2 px-4">Species</th>
+        <td mat-cell *matCellDef="let pet" class="py-2 px-4">{{ pet.species }}</td>
+      </ng-container>
+    
+      <ng-container matColumnDef="age">
+        <th mat-header-cell *matHeaderCellDef class="py-2 px-4">Age</th>
+        <td mat-cell *matCellDef="let pet" class="py-2 px-4">{{ pet.age }}</td>
+      </ng-container>
+    
+      <ng-container matColumnDef="color">
+        <th mat-header-cell *matHeaderCellDef class="py-2 px-4">Color</th>
+        <td mat-cell *matCellDef="let pet" class="py-2 px-4">{{ pet.color }}</td>
+      </ng-container>
+    
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef class="py-2 px-4">Actions</th>
+        <td mat-cell *matCellDef="let pet" class="py-2 px-4">
+          <button mat-icon-button (click)="editPet(pet)" class="btn btn-primary m-1">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-icon-button (click)="deletePet(pet)" class="btn btn-danger m-1">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+    
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>
+</div>
